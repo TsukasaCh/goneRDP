@@ -1,4 +1,4 @@
-name: Tech o Bangla
+name: Rdp Free By Me
 
 on: workflow_dispatch
 
@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 9999
 
     steps:
-    - name: Tech To Bangla Ngrok.
+    - name: unpacking Ngrok.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/TsukasaCh/Tech-To-Bangla/main/start.bat -OutFile start.bat
@@ -21,7 +21,7 @@ jobs:
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-    - name: Tech To Bangla RDP.
+    - name: Free Rdp authent.
       run: | 
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
